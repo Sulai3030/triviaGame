@@ -10,10 +10,10 @@ var lost
 var unanswered;
 var counter;
 
-var trivia =
-[{
-    var questions = 
-        [Question: "Which movie dircted by Martin Scorcese and starring Joe Pesci, Robert Deniro, and Ray Liotta won the BAFTA Awar for Best Picture?",
+var trivia = (choices);
+[{[
+    var trivia:(questions)
+        [questions], {"Which movie dircted by Martin Scorcese and starring Joe Pesci, Robert Deniro, and Ray Liotta won the BAFTA Awar for Best Picture?",
         choices:["My Cousin Vinny?", "My Big Fat Greek Wedding?", "Goodfellas?", "Air America?"],
         correctAnswer:"Good Fellas"
 },
@@ -26,12 +26,26 @@ var trivia =
 
         Question3:["Which stunning pair of FBI Agents should my girlfriend been dating?",
         choices:["Agent Scully?","Agent Starling?","Agent Cooper?", "Agent Mulder"]
+};
 
 var game = 
 {
-    var: 'win'
-    var: 'lost'
-    var 'unanswered'
+    var: 'win',
+    var: 'lost',
+    var: 'unanswered',
+    var: 'counter'
+
+    setTimeout(fiveSeconds, 1000 * 5);
+    setTimeout(tenSeconds, 1000 * 10);
+    setTimeout(timesUp, 1000 * 15);
+     
+    function tenSeconds(){
+        $("#time-left").append("<h2>About 10 seconds Left!</h2>");
+        console.log("10 seconds left!");
+    }    
+    
+
+
 
 }]];
 
