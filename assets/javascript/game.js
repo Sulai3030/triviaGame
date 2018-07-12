@@ -10,9 +10,9 @@ var lost
 var unanswered;
 var counter;
 
-var trivia = (choices);
+var trivia = (questions);
 [{[
-    var trivia:(questions)
+    var trivia:()
         [questions], {"Which movie dircted by Martin Scorcese and starring Joe Pesci, Robert Deniro, and Ray Liotta won the BAFTA Awar for Best Picture?",
         choices:["My Cousin Vinny?", "My Big Fat Greek Wedding?", "Goodfellas?", "Air America?"],
         correctAnswer:"Good Fellas"
