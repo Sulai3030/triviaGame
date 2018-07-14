@@ -64,9 +64,44 @@ console.log("5 seconds left");
     $("#time-left").append("<h2>Time's Up!</h2>");
 console.log("time is up");
   },
-    setInterval(UpdateDisplay,1);
+ //setinterval to countdown time
+  function setInterval(UpdateDisplay,1);
     function updateDisplay(){
         var value = parsInt($('#timer').find('.value').text(),10);
         value++;
         $('#timer').find('.value').text(value);
-    }, refreshIntervalId = set
+    }, 
+    (function setTimeout(tenSeconds, 1000):;
+//for loop to check answers    
+    var trivia;
+    for (i = 0; i < trivia.length; i++){
+    text += trivia[i] + "<questions>";                                           
+}
+//IF statement to check if game is done
+if (questions){
+    $("#You Win!".click(){
+        
+    };
+} else
+(#"Sorry Try Again"();
+});
+
+else/if (condition) {
+    ("Try again!") 
+}
+//check when all questions are done
+
+else/if
+
+//clear area
+//display the Trivia.win Trivia.lost Trivia.unanaswered
+
+//function for results
+updateDisplay {
+    "Results"
+}
+//make sure user clicks correct answer
+//if userChoices.val()===""
+//unaswer ++
+//if (userChoices)!=answer)
+//lost++
