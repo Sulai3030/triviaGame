@@ -23,15 +23,15 @@ var trivia = questions;
         ["Who had the first number one Rap Single?"]
         [choices]["MC Hammer", "DJ Jazzy Jeff and the Fresh Prince", "Vanilla Ice?", "Public Enemy?"]
         [correctAnswer]["Vanilla Ice"]
-    ]:
-{
+    ,
+
         
     trivia = ["Who lit the Olympics Torch       at the 1996 Summer Olympics?",
         [choices]
         ["The Counting Crows?", "Mayor Andrew Young?", "President Clinton", "Muhammed Ali","Chris Harwicke and Jenny McCarthy"]
         [correctAnswer]["Muhammed Ali"]
-    ]:
-    {
+    ]
+
 
         Question3:["Which stunning pair of FBI Agents should my girlfriend been dating?",
         [choices]["Agent Scully?","Agent Starling?","Agent Cooper?", "Agent Mulder"]
@@ -62,6 +62,11 @@ console.log("5 seconds left");
     function timeUp() {
     console.log("done");
     $("#time-left").append("<h2>Time's Up!</h2>");
-    console.log("time is up");
-  }
-
+console.log("time is up");
+  },
+    setInterval(UpdateDisplay,1);
+    function updateDisplay(){
+        var value = parsInt($('#timer').find('.value').text(),10);
+        value++;
+        $('#timer').find('.value').text(value);
+    }, refreshIntervalId = set
