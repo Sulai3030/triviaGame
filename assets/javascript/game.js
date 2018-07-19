@@ -70,19 +70,16 @@ for (i = 0; i < questions.length; i++) {
     console.log(text);
 }
 
-
-
-    //Do something
-
-    //Do something
-
-
-
 // Then display questions in html elements
-
 //Same loop; display anwer choices (might need 2nd loop inside the first one) questions[i].choices
-
-
+for (var i=0; i<=2; i++)
+{
+    document.getElementById('questions').innerHTML+= '<p>'+ questions[i].question+'</p><br><br>';
+    for (var j=0; j<=2; j++){
+        document.getElementById('questions').innerHTML+='<input type="radio" name='+j+'>'+questions[i].choice+j+'<br>';
+            }
+}
+   
 
  //setinterval to count down time
  //function timeLeft(){
@@ -91,10 +88,28 @@ for (i = 0; i < questions.length; i++) {
 //              ,size : "lg"
 //	});
 //};
+setInterval(function() {
+    // code to run every 5 seconds
+    var last = parseInt($('#timeLeft').val());
+    $('#timeLeft').val(last - 5);
+  }, 5000)
 
-// in the element with an id of time-left add an h2 saying About 10 Seconds Left!
+  // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
     // console log 10 seconds left
- 
+    var timeLeft = document.createElement('timeLeft');
+    timeLeft.id = 'block';
+    timeLeft.className = 'block';
+    
+    // Create the inner div before appending to the body
+    var innerDiv = document.createElement('div');
+    innerDiv.className = 'block-2';
+    
+    // The variable iDiv is still good... Just append to it.
+    timeLeft.appendChild(innerDiv);
+    
+    // Then append the whole thing onto the body
+    document.getElementsByTagName('body')[0].appendChild(iDiv);
+     
   
   
 
