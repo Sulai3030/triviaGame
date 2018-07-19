@@ -60,13 +60,37 @@ let questions = [
       unanswered : 0,
       counter : 0
  };
+
+// Loop through questions, and pluck out question like questions[i].question
+
+
+var i;
+for (i = 0; i < questions.length; i++) { 
+    var text = questions[i];
+    console.log(text);
+}
+
+
+
+    //Do something
+
+    //Do something
+
+
+
+// Then display questions in html elements
+
+//Same loop; display anwer choices (might need 2nd loop inside the first one) questions[i].choices
+
+
+
  //setinterval to count down time
- function timeLeft(){
-	$("#s_timer").countdowntimer({
-		seconds : 1000
-                ,size : "lg"
-	});
-};
+ //function timeLeft(){
+//	$("#s_timer").countdowntimer({
+//		seconds : 1000
+//              ,size : "lg"
+//	});
+//};
 
 // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
     // console log 10 seconds left
@@ -76,9 +100,9 @@ let questions = [
 
 //for loop to check answers    
 //var trivia;
-  //   for (i = 0; i < trivia.length; i++){
-    // text += trivia[i] + "<questions>";                                           
- //}
+//    for (i = 0; i < trivia.length; i++){
+//    text += trivia[i] + "<questions>";                                           
+// }
 
 
 
