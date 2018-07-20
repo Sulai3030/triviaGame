@@ -1,9 +1,9 @@
-var trivia;
 //var score;
 //var timer;
 //var questions;
 //var choices;
 //var results;
+var trivia;
 var win;
 var lost
 var unanswered;
@@ -12,6 +12,7 @@ var updateDisplay;
 var gamearea;
 var game;
 var timeLeft;
+var victory;
 
 let questions = [
     {
@@ -62,14 +63,25 @@ let questions = [
  };
 
 // Loop through questions, and pluck out question like questions[i].question
+console.log(questions[0].choices[0])
 
+for(var i=0; i<questions.length;i++)
+{//print out the questions
+   console.log("Question "+ i+1+ " " +questions[i].question);
+   //print out each choice for the question
+   for(var x=0; x< questions[i].choices.length;x++)
+   {
+       console.log(questions[i].choices[x]);
+   }
+};
 
 var i;
 for (i = 0; i < questions.length; i++) { 
     var text = questions[i];
     console.log(text);
 }
-
+console.log(questions[0].choices);
+questions[0]
 // Then display questions in html elements
 //Same loop; display anwer choices (might need 2nd loop inside the first one) questions[i].choices
 for (var i=0; i<=2; i++)
@@ -82,20 +94,75 @@ for (var i=0; i<=2; i++)
    
 
  //setinterval to count down time
- //function timeLeft(){
-//	$("#s_timer").countdowntimer({
-//		seconds : 1000
-//              ,size : "lg"
-//	});
-//};
-setInterval(function() {
+function timeLeft(){
+	$("#s_timer").countdowntimer({
+		seconds : 1000
+              ,size : "lg"
+	});
+};
+
+//setInterval(function() {
     // code to run every 5 seconds
-    var last = parseInt($('#timeLeft').val());
-    $('#timeLeft').val(last - 5);
-  }, 5000)
+ //   var last = parseInt($('#timeLeft').val());
+// $('#timeLeft').val(last - 1);
+//  }, 1000)
 
   // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
     // console log 10 seconds left
+    var number = 10;
+
+    //  Variable that will hold our interval ID when we execute
+    //  the "run" function
+    var intervalId;
+
+    //  When the stop button gets clicked, run the stop function.
+    $("#stop").on("click", stop);
+
+    //  When the resume button gets clicked, execute the run function.
+    $("#resume").on("click", run);
+
+    //  The run function sets an interval
+    //  that runs the decrement function once a second.
+    //  *****BUG FIX******** 
+    //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+    function run() {
+      clearInterval(intervalId);
+      intervalId = setInterval(decrement, 1000);
+    }
+
+    //  The decrement function.
+    function decrement() {
+
+      //  Decrease number by one.
+      number--;
+
+      //  Show the number in the #show-number tag.
+      $("#show-number").html("<h2>" + number + "</h2>");
+
+
+      //  Once number hits zero...
+      if (number === 0) {
+
+        //  ...run the stop function.
+        stop();
+
+        //  Alert the user that time is up.
+        alert("Time Up!");
+      }
+    }
+
+    //  The stop function
+    function stop() {
+
+      //  Clears our intervalId
+      //  We just pass the name of the interval
+      //  to the clearInterval function.
+      clearInterval(intervalId);
+    }
+
+    //  Execute the run function.
+    run();
+
     var timeLeft = document.createElement('timeLeft');
     timeLeft.id = 'block';
     timeLeft.className = 'block';
@@ -108,9 +175,9 @@ setInterval(function() {
     timeLeft.appendChild(innerDiv);
     
     // Then append the whole thing onto the body
-    document.getElementsByTagName('body')[0].appendChild(iDiv);
+    document.getElementsByTagName('body')[0].appendChild(timeLeft);
      
-  
+
   
 
 //for loop to check answers    
@@ -121,25 +188,26 @@ setInterval(function() {
 
 
 
-// //IF statement to check if game is done
-// if (questions){
-//     $("#You Win!".click(){
-        
-//     };
-// } else
-// ("Sorry Try Again"();
-// });
+ //IF statement to check if game is done
 
-// else if (condition) {
+if (questions){
+     $("#You Win!".click());
+} else if (results){"#Sorry, Try Again. Womp Womp!"} //else {
 //     ("Try again!") 
-// }
-// //check when all questions are done
+//}
+
+
+//check when all questions are done
 
 // else/if
 
 // //clear area
-// //display the Trivia.win Trivia.lost Trivia.unanaswered
 
+
+// //display the Trivia.win Trivia.lost Trivia.unanaswered
+function victory() {
+    alert("#You Win!");
+}
 // //function for results
 // updateDisplay {
 //     "Results"
@@ -149,3 +217,4 @@ setInterval(function() {
 // //unaswer ++
 // //if (userChoices)!=answer)
 // //lost++
+
