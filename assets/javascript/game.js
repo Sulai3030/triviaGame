@@ -69,6 +69,20 @@ let questions = [
       counter : 0
  };
 
+//radiobtn hide code
+var t;
+
+$(function(){
+    $('#h4').on('keypress', function(){
+      clearTimeout(t);
+      
+      t = setTimeout(function(){
+        $('.form-group:eq(1)').fadeIn();
+      }, 1000);
+    });
+});
+
+
 // Loop through questions, and pluck out question like questions[i].question
 console.log(questions[0].choices[0])
 
@@ -221,9 +235,13 @@ function victory() {
 }
 
 // NEED SUBMIT BUTTON
-$("#submitbtn").on(function(event){
+//$("#submitbtn").on(function(event){
+    $( "#submitbtn" ).submit(function( event ) {
+        alert( "Handler for .submit() called." );
+        event.preventDefault();
+      });
     //logic for checking submiitted answers with correct // // answers
-})
+
 
 
 

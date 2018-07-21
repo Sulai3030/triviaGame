@@ -1,3 +1,9 @@
 body{
     background-image:url("/Users/Sully/columbiaClassWork/triviaGame/assets/images/cassette.jpg");
 }
+.form-group{
+	display:none;    
+}
+.form-group:first-child{
+    display:block; 
+}
