@@ -13,7 +13,13 @@ var gamearea;
 var game;
 var timeLeft;
 var victory;
-
+/*
+var counter = 0;
+questions[0]
+once user selects an answer, 2 things:
+    1. compare the selected value to corect answer
+    2. increment counter to 1, display questions[1] to page
+*/
 let questions = [
     {
         question:
@@ -54,6 +60,7 @@ let questions = [
         correctAnswer: "Agent Scully",
     }
 ]
+
      var game = {
 
       win : 0,
@@ -83,12 +90,14 @@ for (i = 0; i < questions.length; i++) {
 console.log(questions[0].choices);
 questions[0]
 // Then display questions in html elements
-//Same loop; display anwer choices (might need 2nd loop inside the first one) questions[i].choices
-for (var i=0; i<=2; i++)
+//Same loop; display answer choices (might need 2nd loop inside the first one) questions[i].choices
+for (var i=0; i<=questions.length; i++)
 {
+    //DEBUG UNDEFINED VALUE BEING PUSHED INTO HTML ELEMENTS
     document.getElementById('questions').innerHTML+= '<p>'+ questions[i].question+'</p><br><br>';
-    for (var j=0; j<=2; j++){
-        document.getElementById('questions').innerHTML+='<input type="radio" name='+j+'>'+questions[i].choice+j+'<br>';
+    for (var j=0; j<4; j++){
+        //THE PROBLEM IS ON LINE 92
+        document.getElementById('questions').innerHTML+='<input type="radio" name='+j+'>'+questions[i].choices[j]+'<br>';
             }
 }
    
@@ -100,6 +109,8 @@ function timeLeft(){
               ,size : "lg"
 	});
 };
+//ONLY ALLOW ONE BUTTON TO BE CLICKED PER CHOICE
+//ON SUBMIT 
 
 //setInterval(function() {
     // code to run every 5 seconds
@@ -208,13 +219,33 @@ if (questions){
 function victory() {
     alert("#You Win!");
 }
-// //function for results
-// updateDisplay {
-//     "Results"
-// }
+
+// NEED SUBMIT BUTTON
+$("#submitbtn").on(function(event){
+    //logic for checking submiitted answers with correct // // answers
+})
+
+
+
 // //make sure user clicks correct answer
 // //if userChoices.val()===""
 // //unaswer ++
 // //if (userChoices)!=answer)
 // //lost++
 
+
+/*
+QUestions Array => Good
+
+Setting up inputs: 
+<input type="radio" name='+j+'>'+questions[i].choices[j]>
+
+<input type='radio' data-value='Q1-1'>My Cousin Vinny</input>
+on click:
+- grab the data value of clicked radio input (Q3-4)
+
+Answers Array => [{Q1: 'My Cousin Vinny'}, {Q2: }, {Q3: 'Muhammad Ali'}, {Q4: }];
+
+- Answers array is filled up with value for each Question
+- On Submit, compare the value for each question in arnswer array to correct answer
+*/
