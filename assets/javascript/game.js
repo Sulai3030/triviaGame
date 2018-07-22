@@ -13,6 +13,9 @@ var gamearea;
 var game;
 var timeLeft;
 var victory;
+var output = [];
+var answers;
+answers = [];
 /*
 var counter = 0;
 questions[0]
@@ -236,14 +239,31 @@ function victory() {
 
 // NEED SUBMIT BUTTON
 //$("#submitbtn").on(function(event){
-    $( "#submitbtn" ).submit(function( event ) {
-        alert( "Handler for .submit() called." );
+    $( "#submitbtn" ).on(function( event ) {
+        alert( "correctAnswer" );
         event.preventDefault();
       });
     //logic for checking submiitted answers with correct // // answers
 
+    output.push(
+        '<div class="questions">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+    );
 
+// finally combine our output list into one string of html and put it on the page
+quizContainer.innerHTML = output.join('');
+output.push(
+    '<div class="question">' + questions[i].question + '</div>'
+    + '<div class="answers">' + answers.join('') + '</div>'
+);
+}
 
+// finally combine our output list into one string of html and put it on the page
+quizContainer.innerHTML = output.join('');
+}
+submitButton.onclick = function(){
+	showResults(questions, quizContainer, resultsContainer);
+}
 
 // //make sure user clicks correct answer
 // //if userChoices.val()===""
